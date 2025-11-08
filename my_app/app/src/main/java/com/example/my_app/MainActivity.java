@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ListView lw;
     private EditText et;
     private Button btnAdd, btnEdit, btnDel, btnClear;
-    private int curPos = -1; // позиция выбранного элемента
-    private View curView = null; // ссылка на выделенный элемент
+    private int curPos = -1;
+    private View curView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
