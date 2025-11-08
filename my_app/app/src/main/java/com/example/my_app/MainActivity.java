@@ -1,26 +1,25 @@
 package com.example.my_app;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.my_app.R;
-import com.example.my_app.Second;
-import com.example.my_app.Third;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void openSecondActivity(View view){
-        startActivity(new Intent(this, Second.class));
-    }
-
-    public void openThirdActivity(View view){
-        startActivity(new Intent(this, Third.class));
+        Button btnStartActivity = findViewById(R.id.btnStartActivity);
+        btnStartActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
