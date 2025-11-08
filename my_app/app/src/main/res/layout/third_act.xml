@@ -5,15 +5,15 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <Button
-        android:text="Open Second Activity"
-        android:onClick="openSecondActivity"
+    <TextView
+        android:text="Third Activity"
+        android:textSize="24sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <Button
-        android:text="Open Third Activity"
-        android:onClick="openThirdActivity"
+        android:text="Back"
+        android:onClick="goBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </LinearLayout>
