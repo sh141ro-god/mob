@@ -2,9 +2,10 @@ package com.example.my_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.*;
+import android.view.View;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -15,7 +16,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private int selectedIndex1 = -1;
     private int selectedIndex2 = -1;
-    private boolean list1Selected = false; // флаг, какой список выбран
+    private boolean list1Selected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,13 @@ public class SecondActivity extends AppCompatActivity {
         Button btnDelete = findViewById(R.id.btnDelete);
         Button btnBack = findViewById(R.id.btnBack);
 
-        list1 = new ArrayList<>();
-        list2 = new ArrayList<>();
+        String[] ar1 = getResources().getStringArray(R.array.ar1);
+        String[] ar2 = getResources().getStringArray(R.array.ar2);
+
+
+        list1 = new ArrayList<>(Arrays.asList(ar1));
+        list2 = new ArrayList<>(Arrays.asList(ar2));
+
 
         adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_activated_1, list1);
         adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_activated_1, list2);
@@ -40,7 +46,7 @@ public class SecondActivity extends AppCompatActivity {
         listView1.setAdapter(adapter1);
         listView2.setAdapter(adapter2);
 
-        // Добавление в список 1
+
         btnAdd1.setOnClickListener(v -> {
             String text = editText.getText().toString().trim();
             if (!text.isEmpty()) {
@@ -50,7 +56,6 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-        // Добавление в список 2
         btnAdd2.setOnClickListener(v -> {
             String text = editText.getText().toString().trim();
             if (!text.isEmpty()) {
@@ -60,7 +65,6 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-        // Выбор элемента в ListView 1
         listView1.setOnItemClickListener((parent, view, position, id) -> {
             selectedIndex1 = position;
             selectedIndex2 = -1;
@@ -70,7 +74,6 @@ public class SecondActivity extends AppCompatActivity {
             editText.setText(list1.get(position));
         });
 
-        // Выбор элемента в ListView 2
         listView2.setOnItemClickListener((parent, view, position, id) -> {
             selectedIndex2 = position;
             selectedIndex1 = -1;
@@ -80,7 +83,6 @@ public class SecondActivity extends AppCompatActivity {
             editText.setText(list2.get(position));
         });
 
-        // Редактирование выбранного элемента
         btnEdit.setOnClickListener(v -> {
             String newText = editText.getText().toString().trim();
             if (list1Selected && selectedIndex1 >= 0 && !newText.isEmpty()) {
@@ -92,7 +94,6 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-        // Удаление выбранного элемента
         btnDelete.setOnClickListener(v -> {
             if (list1Selected && selectedIndex1 >= 0) {
                 list1.remove(selectedIndex1);
@@ -106,7 +107,6 @@ public class SecondActivity extends AppCompatActivity {
             editText.setText("");
         });
 
-        // Кнопка Back
         btnBack.setOnClickListener(v -> onBackPressed());
     }
 }
