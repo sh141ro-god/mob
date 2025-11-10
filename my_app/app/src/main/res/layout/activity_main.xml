@@ -3,12 +3,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="24dp">
 
-    <Button
-        android:id="@+id/btnStartActivity"
+    <TextView
+        android:text="Строковое значение 1:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editTextString1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите строку 1" />
+
+    <TextView
+        android:text="Строковое значение 2:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Activity" />
+        android:layout_marginTop="12dp" />
+
+    <EditText
+        android:id="@+id/editTextString2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите строку 2" />
+
+    <TextView
+        android:text="Целое значение:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp" />
+
+    <EditText
+        android:id="@+id/editTextInt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Введите число" />
+
 </LinearLayout>

@@ -5,4 +5,9 @@
     <string name="btn3">Btn3</string>
     <string name="btn4">Btn4</string>
     <string name="AfterClick">***</string>
+    <string name="preferences">user_prefs</string>
+    <string name="string_element_1">string_element_1</string>
+    <string name="string_element_2">string_element_2</string>
+    <string name="int_element">int_element</string>
+
 </resources>
